@@ -1,0 +1,33 @@
+class SmartWaterFountain:
+    def __init__(self):
+        self.water_level = 100  # Initial water level in percentage
+        self.filter_life = 100  # Initial filter life in percentage
+        self.temperature = 20   # Initial water temperature in Celsius
+
+    def dispense_water(self, amount):
+        if self.water_level >= amount:
+            self.water_level -= amount
+            print(f"Dispensing {amount}ml of water.")
+        else:
+            print("Not enough water. Please refill.")
+
+    def change_filter(self):
+        if self.filter_life <= 10:
+            self.filter_life = 100
+            print("Filter replaced.")
+        else:
+            print("Filter does not need replacement yet.")
+
+    def adjust_temperature(self, new_temp):
+        self.temperature = new_temp
+        print(f"Water temperature set to {new_temp}°C.")
+
+# Example Usage
+fountain = SmartWaterFountain()
+
+fountain.dispense_water(50)  # Dispense 50ml of water
+fountain.dispense_water(70)  # Dispense 70ml of water (Not enough water)
+
+fountain.change_filter()     # Change the filter (if needed)
+
+fountain.adjust_temperature(15)  # Set water temperature to 15°C
